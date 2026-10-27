@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Desmos Clone</title>
+    <!-- Load the official Desmos API script -->
+    <script src="https://desmos.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <h1>Graphing Calculator</h1>
+    </header>
+
+    <!-- The container where the Desmos calculator will generate -->
+    <div id="calculator"></div>
+
+    <script>
+        // Grab the container element from above
+        const elt = document.getElementById('calculator');
+        
+        // Initialize the Desmos graphing engine inside it
+        const calculator = Desmos.GraphingCalculator(elt, {
+            keypad: true,
+            expressions: true,
+            settingsMenu: true
+        });
+
+        // Optional: Pre-program an initial equation when the site loads
+        calculator.setExpression({ id: 'graph1', latex: 'y = x^2' });
+    </script>
+</body>
+</html>
